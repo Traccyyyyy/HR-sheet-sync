@@ -14,9 +14,6 @@ This repository provides a reusable integration pattern for syncing structured l
 
 ## Workflow
 
-A sanitized version of the n8n workflow JSON is provided in the `workflow/` folder.
-
-###  Workflow 
 Connect to NoahFace → Get Job List from Google Sheet → Json List → Respond to Webhook
 
 ```json

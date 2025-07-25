@@ -1,7 +1,4 @@
 # HR-sheet-sync
-Daily / on-demand n8n workflow that syncs an HR roster from Google Sheets → NoahFace Global List
-# hr-sheet-sync
-
 **Google Sheets → n8n → NoahFace Global List** automated synchronization workflow, where NoahFace reads data from n8n via a GET webhook.
 
 This repository provides a reusable integration pattern for syncing structured lists from Google Sheets into NoahFace Global Lists. Sensitive implementation details (e.g., credentials, full workflow JSON) are not included.

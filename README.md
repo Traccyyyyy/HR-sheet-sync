@@ -96,10 +96,6 @@ Google Sheets  →  n8n (validate/transform)  →  GET Webhook (NoahFace fetches
 
 ---
 
-## License
-
-MIT (or keep private as required).
-
 ## Contact
 
 Open an issue or PR for collaboration.

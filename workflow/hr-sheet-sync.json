@@ -1,0 +1,73 @@
+Here's the sanitized n8n workflow JSON you can safely include in your repository:
+
+```json
+{
+  "name": "NoahFace Global List via GS",
+  "nodes": [
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}",
+        "options": {
+          "responseHeaders": {
+            "entries": [
+              {
+                "name": "=Content-Type",
+                "value": "application/json"
+              }
+            ]
+          }
+        }
+      },
+      "id": "<REDACTED-ID>",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [1240, 280]
+    },
+    {
+      "parameters": {
+        "jsCode": "return [\\n  {\\n    json: {\\n      Lists: items.map(item => ({\\n        List: parseInt(item.json.List),\\n        Value: item.json.Value,\\n        Name: item.json.Name,\\n        Code: item.json.Code || undefined,\\n        Parent: item.json.Parent || undefined\\n      }))\\n    }\\n  }\\n];"
+      },
+      "id": "<REDACTED-ID>",
+      "name": "Json List ",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1020, 280]
+    },
+    {
+      "parameters": {
+        "path": "<PLACEHOLDER-WEBHOOK-PATH>",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "<REDACTED-ID>",
+      "name": "Connect to NoahFace",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [580, 280],
+      "webhookId": "<REDACTED-WEBHOOK-ID>"
+    },
+    {
+      "parameters": {
+        "authentication": "serviceAccount",
+        "documentId": {"__rl": true, "value": "<SPREADSHEET_ID>", "mode": "id"},
+        "sheetName": {"__rl": true, "value": "Sheet1", "mode": "name"},
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [800, 280],
+      "id": "<REDACTED-ID>",
+      "name": "Get Job List from Google Sheet"
+    }
+  ],
+  "connections": { ... },
+  "active": true,
+  "settings": { "executionOrder": "v1" },
+  "versionId": "<REDACTED-VERSION-ID>",
+  "meta": { "templateCredsSetupCompleted": true },
+  "id": "<REDACTED-WORKFLOW-ID>",
+  "tags": []
+}
+```
